@@ -1,7 +1,44 @@
 import React, { useState } from "react";
+import "./App.css";
+//destructuring todo and index from props
+function Todo({ todo, index, completeTodo }) {
+  return (
+    <div
+      //adding stying so that if todo is completed then there will be a line-through the text
+      //isCompleted is set to false on state by default
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+      className="todo"
+    >
+      {todo.text}
+      <div>
+        <button onClick={() => completeTodo(index)}>Complete</button>
+        <button onClick={() => completeTodo(index)}>Delete</button>
+      </div>
+    </div>
+  );
+}
+//destructuring addTodo from props
+function TodoForm({ addTodo }) {
+  //form will have state so we will use useState again, state will be empty by default ie(useState(""))
+  const [value, setValue] = useState("");
 
-function Todo({ todo, index }) {
-  return <div className="todo">{todo.text}</div>;
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input"
+        value={value}
+        placeholder="add to do..."
+        onChange={e => setValue(e.target.value)}
+      />
+    </form>
+  );
 }
 
 function App() {
@@ -22,14 +59,33 @@ function App() {
     }
   ]);
 
+  const addTodo = text => {
+    //creating newTodos and keeping current todos by using spread operator
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
+    setTodos(newTodos);
+  };
+
   return (
     <div className="app">
       <div className="todo-list">
         {todos.map((todo, index) => (
           //passing props to Todo Component which is a function Component that is declared above in App.js Component.
           //so different then class based but, very exciting.
-          <Todo key={index} index={index} todo={todo}></Todo>
+          <Todo
+            completeTodo={completeTodo}
+            key={index}
+            index={index}
+            todo={todo}
+          ></Todo>
         ))}
+        {/* passing addTodo to TodoForm */}
+        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );
