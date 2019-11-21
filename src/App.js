@@ -3,6 +3,7 @@ import "./App.css";
 import Counter from "./Components/Counter/Counter";
 import CounterHook from "./Components/Counter/CounterHook";
 import Toggler from "./Components/Toggler/Toggler";
+import SimpleFormClass from "./Components/SimpleForm/SimpleFormClass";
 //destructuring todo and index from props
 function Todo({ todo, index, completeTodo, deleteTodo }) {
   return (
@@ -80,7 +81,9 @@ function App() {
     //like this.setState
     setTodos(newTodos);
   };
-
+  const styleToggle = {
+    color: "pink"
+  };
   return (
     <div className="app">
       <div className="todo-list">
@@ -100,7 +103,10 @@ function App() {
       </div>
       <Counter />
       <CounterHook />
-      <Toggler />
+      <div style={styleToggle}>
+        <Toggler />
+      </div>
+      <SimpleFormClass />
     </div>
   );
 }

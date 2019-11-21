@@ -11,6 +11,7 @@ function useToggle(initalVal = false) {
   return [state, toggle];
 }
 export default useToggle;
+
 //above is the same as what we have below but, we can use it on both isHappy State & inLove State
 // const toggle = () => {
 //     setIsHappy(!isHappy);
