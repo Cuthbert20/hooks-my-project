@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import Counter from "./Components/Counter/Counter";
+import CounterHook from "./Components/Counter/CounterHook";
 //destructuring todo and index from props
 function Todo({ todo, index, completeTodo, deleteTodo }) {
   return (
@@ -95,6 +97,8 @@ function App() {
         {/* passing addTodo to TodoForm */}
         <TodoForm addTodo={addTodo} />
       </div>
+      <Counter />
+      <CounterHook />
     </div>
   );
 }
