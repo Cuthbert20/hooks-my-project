@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Counter from "./Components/Counter/Counter";
 import CounterHook from "./Components/Counter/CounterHook";
+import Toggler from "./Components/Toggler/Toggler";
 //destructuring todo and index from props
 function Todo({ todo, index, completeTodo, deleteTodo }) {
   return (
@@ -99,6 +100,7 @@ function App() {
       </div>
       <Counter />
       <CounterHook />
+      <Toggler />
     </div>
   );
 }
