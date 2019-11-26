@@ -10,7 +10,9 @@ export default class SimpleFormClass extends Component {
   }
   handleChange(e) {
     this.setState({ email: e.target.value });
+    document.title = this.state.email;
   }
+  componentDidUpdate() {}
   render() {
     const { email } = this.state;
     return (
