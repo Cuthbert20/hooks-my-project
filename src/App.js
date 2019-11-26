@@ -4,6 +4,8 @@ import Counter from "./Components/Counter/Counter";
 import CounterHook from "./Components/Counter/CounterHook";
 import Toggler from "./Components/Toggler/Toggler";
 import SimpleFormClass from "./Components/SimpleForm/SimpleFormClass";
+import SimpleFormHook from "./Components/SimpleForm/SimpleFormHook";
+
 //useEffec Example
 import Clicker from "./Components/Clicker/Clicker";
 //destructuring todo and index from props
@@ -110,6 +112,7 @@ function App() {
       </div>
       <SimpleFormClass />
       <Clicker />
+      <SimpleFormHook />
     </div>
   );
 }
