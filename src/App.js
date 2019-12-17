@@ -5,6 +5,7 @@ import CounterHook from "./Components/Counter/CounterHook";
 import Toggler from "./Components/Toggler/Toggler";
 import SimpleFormClass from "./Components/SimpleForm/SimpleFormClass";
 import SimpleFormHook from "./Components/SimpleForm/SimpleFormHook";
+import SWMovies from "./Components/SWMovies/SWMovies";
 
 //useEffec Example
 import Clicker from "./Components/Clicker/Clicker";
@@ -113,6 +114,8 @@ function App() {
       <SimpleFormClass />
       <Clicker />
       <SimpleFormHook />
+      <SWMovies />
+      <br />
     </div>
   );
 }
