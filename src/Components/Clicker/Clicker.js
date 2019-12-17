@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 function Clicker() {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    alert(`The Count is ${count}`);
+    // alert(`The Count is ${count}`);
+    document.title = `Count: ${count}`;
   });
   return (
     <div>
